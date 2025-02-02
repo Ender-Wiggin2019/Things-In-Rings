@@ -2,7 +2,7 @@
  * @Author: Ender-Wiggin
  * @Date: 2025-02-01 11:39:06
  * @LastEditors: Ender-Wiggin
- * @LastEditTime: 2025-02-02 21:19:19
+ * @LastEditTime: 2025-02-02 21:56:49
  * @Description:
  */
 import { NextIntlClientProvider } from "next-intl";
@@ -12,7 +12,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Link, routing } from "@/i18n/routing";
 import { Bangers, ZCOOL_KuaiLe } from "next/font/google";
+import {setRequestLocale} from 'next-intl/server';
+
 import "./globals.css";
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({locale}));
+}
 
 const bangers = Bangers({
 	weight: "400",
@@ -31,11 +37,13 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
 	children,
-	params: { locale },
+	params,
 }: {
 	children: React.ReactNode;
-	params: { locale: string };
+	params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
 	// Ensure that the incoming `locale` is valid
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	if (!routing.locales.includes(locale as any)) {

@@ -4,5 +4,16 @@ import { routing } from "./i18n/routing";
 export default createMiddleware(routing);
 
 export const config = {
-  matcher: ["/", "/(zh-CN|en)/:path*"], // At this line, define into the matcher all the availables language you have defined into routing.ts
+	matcher: [
+		// Enable a redirect to a matching locale at the root
+		"/",
+
+		// Set a cookie to remember the previous locale for
+		// all requests that have a locale prefix
+		"/(zh-CN|en)/:path*",
+
+		// Enable redirects that add missing locales
+		// (e.g. `/pathnames` -> `/en/pathnames`)
+		"/((?!_next|_vercel|.*\\..*).*)",
+	],
 };
