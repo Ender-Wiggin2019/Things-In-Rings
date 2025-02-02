@@ -2,7 +2,7 @@
  * @Author: Ender-Wiggin
  * @Date: 2025-02-01 11:39:06
  * @LastEditors: Ender-Wiggin
- * @LastEditTime: 2025-02-02 21:56:49
+ * @LastEditTime: 2025-02-02 22:14:31
  * @Description:
  */
 import { NextIntlClientProvider } from "next-intl";
@@ -67,7 +67,7 @@ export default async function RootLayout({
 					</NextIntlClientProvider>
 				</main>
 				<footer className="w-full py-4">
-					<div className="container mx-auto px-2 flex justify-between gap-4">
+					<div className="container mx-auto px-2 flex justify-between gap-4 text-sm">
           <Link href={"/generator"} className="text-white underline hover:underline">
 							Generator
 						</Link>
@@ -75,7 +75,7 @@ export default async function RootLayout({
 							Card List
 						</Link>
             <Link href={"https://docs.google.com/spreadsheets/d/1VxIXf5RiGQGDnk4eoLz4tDqIaKmzvNnropPOSWjrh2w/edit?usp=sharing"} className="text-white underline hover:underline">
-							Add More Cards
+							Add Cards
 						</Link>
             <Link href={"/card-list"} className="text-white underline hover:underline">
 							Help Translate
