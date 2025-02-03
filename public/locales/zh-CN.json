@@ -99,5 +99,11 @@
         "star3": "一般般",
         "star4": "有点小难",
         "star5": "有难度"
+    },
+    "Layout": {
+        "Generator": "生成器",
+        "Card List": "卡表",
+        "Add Cards": "增加卡牌",
+        "Help Translate": "帮助翻译"
     }
 }
