@@ -23,6 +23,7 @@ export class GameGenerator {
 	constructor(
 		difficulty: EDisplayDifficulty,
 		subjectiveRates: ESubjectiveRate[],
+        fanMode: boolean,
 		_wordDifficulty?: EDifficulty,
 		_contextDifficulty?: EDifficulty,
 		_attributeDifficulty?: EDifficulty
@@ -43,7 +44,7 @@ export class GameGenerator {
 			attributeDifficulty: _attributeDifficulty || attributeDifficulty,
 		};
         console.log('🎸 [test] - GameGenerator - wordDifficulty:', this.difficulty);
-
+        const _wordCards = fanMode ? [...OfficialWordCards] : OfficialWordCards;
 		this.wordCards = OfficialWordCards.filter((card) =>
 			subjectiveRates.includes(card.subjectiveRate) && card.difficulty <= wordDifficulty
 		);
