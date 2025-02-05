@@ -22,11 +22,10 @@ export default {
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
-			// bg: '#45a3dd',
-			bg: 'white',
-			// word: '#fedf45',
-			// context: '#ec403f',
-			// attribute: '#3c95db',
+			bg: '#45a3dd',
+			word: '#fedf45',
+			context: '#ec403f',
+			attribute: '#3c95db',
 			star: {
 				DEFAULT: '#f7ec00',
 				dark: '#f2bf11',
