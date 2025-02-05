@@ -2,11 +2,12 @@
 /*
  * @Author: Ender-Wiggin
  * @Date: 2025-02-02 12:15:02
- * @LastEditors: Oushuo Huang
- * @LastEditTime: 2025-02-05 15:14:49
+ * @LastEditors: Ender-Wiggin
+ * @LastEditTime: 2025-02-05 17:10:43
  * @Description:
  */
-import React from "react";
+import React, { useState } from "react";
+import ReactCardFlip from "react-card-flip";
 import { ICard } from "@/const/card";
 import { getColor } from "@/utils/getColor";
 import BaseCard from "./base-card";
@@ -20,27 +21,25 @@ type CardProps = {
 
 const Card = ({ card, cardSize, showInfo }: CardProps) => {
 	const bgColor = getColor(card.type);
-
+	const [isFlipped, setIsFlipped] = useState(false);
 	if (!showInfo) {
 		return (
 			<BaseCard content={card.content} bgColor={bgColor} cardSize={cardSize} />
 		);
 	}
 	return (
-		<div className="flip-card">
-			<div className="flip-card-inner">
-				<div className="flip-card-front">
-					<BaseCard
-						content={card.content}
-						bgColor={bgColor}
-						cardSize={cardSize}
-					/>
-				</div>
-				<div className="flip-card-back">
-					<BaseInfo card={card} bgColor={bgColor} cardSize={cardSize} />
-				</div>
+		<ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+			<div onClick={() => setIsFlipped(!isFlipped)}>
+				<BaseCard
+					content={card.content}
+					bgColor={bgColor}
+					cardSize={cardSize}
+				/>
 			</div>
-		</div>
+			<div onClick={() => setIsFlipped(!isFlipped)}>
+				<BaseInfo card={card} bgColor={bgColor} cardSize={cardSize} />
+			</div>
+		</ReactCardFlip>
 	);
 };
 
