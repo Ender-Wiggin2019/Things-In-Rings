@@ -1,8 +1,8 @@
 /*
  * @Author: Ender-Wiggin
  * @Date: 2025-02-03 23:26:59
- * @LastEditors: Ender-Wiggin
- * @LastEditTime: 2025-02-03 23:29:17
+ * @LastEditors: Oushuo Huang
+ * @LastEditTime: 2025-02-05 11:54:37
  * @Description:
  */
 import { EDisplaySubjectiveRate, ESubjectiveRate } from "@/const/card";
@@ -14,4 +14,19 @@ export const SubjectiveRateMap: Record<EDisplaySubjectiveRate, ESubjectiveRate[]
 }
 export const getSubjectiveRates = (SubjectiveRate: EDisplaySubjectiveRate): ESubjectiveRate[] => {
     return SubjectiveRateMap[SubjectiveRate];
+}
+
+export const getSubjectiveText = (subjectiveRate: ESubjectiveRate): string => {
+    switch (subjectiveRate) {
+        case ESubjectiveRate.NONE:
+            return 'None';
+        case ESubjectiveRate.LOW:
+            return 'Low';
+        case ESubjectiveRate.MEDIUM:
+            return 'Medium';
+        case ESubjectiveRate.HIGH:
+            return 'High';
+        default:
+            return '';
+    }
 }

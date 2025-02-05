@@ -2,8 +2,8 @@
 /*
  * @Author: Ender-Wiggin
  * @Date: 2025-02-01 11:39:06
- * @LastEditors: Ender-Wiggin
- * @LastEditTime: 2025-02-02 19:53:24
+ * @LastEditors: Oushuo Huang
+ * @LastEditTime: 2025-02-05 11:18:38
  * @Description:
  */
 import type { Config } from "tailwindcss";
@@ -22,10 +22,11 @@ export default {
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
-			bg: '#45a3dd',
-			word: '#fedf45',
-			context: '#ec403f',
-			attribute: '#3c95db',
+			// bg: '#45a3dd',
+			bg: 'white',
+			// word: '#fedf45',
+			// context: '#ec403f',
+			// attribute: '#3c95db',
 			star: {
 				DEFAULT: '#f7ec00',
 				dark: '#f2bf11',
