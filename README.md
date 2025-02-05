@@ -1,5 +1,7 @@
 # Things in Rings Fan Project
 
+![Things in Rings Fan Website](https://ender-picgo.oss-cn-shenzhen.aliyuncs.com/img/things-in-rings.jpg)
+
 This project aims to bring multi-language and more replayability to this wonderful game.
 Main features are:
 
