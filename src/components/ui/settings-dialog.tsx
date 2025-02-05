@@ -1,15 +1,9 @@
-/*
- * @Author: Oushuo Huang
- * @Date: 2025-02-05 10:27:59
- * @LastEditors: Oushuo Huang
- * @LastEditTime: 2025-02-05 15:13:57
- * @Description:
- */
+"use client";
 /*
  * @Author: Ender-Wiggin
  * @Date: 2025-02-03 11:32:58
- * @LastEditors: Oushuo Huang
- * @LastEditTime: 2025-02-05 11:28:07
+ * @LastEditors: Ender-Wiggin
+ * @LastEditTime: 2025-02-05 21:34:22
  * @Description:
  */
 import { useTranslations } from "next-intl"; // declare this import
@@ -29,10 +23,7 @@ import { Label } from "@/components/ui/label";
 import { Settings } from "lucide-react";
 import { Switch } from "./switch";
 import { Slider } from "./slider";
-import {
-	DisplaySubjectiveRateMap,
-	EDisplaySubjectiveRate,
-} from "@/const/card";
+import { DisplaySubjectiveRateMap, EDisplaySubjectiveRate } from "@/const/card";
 import { StarSelector } from "./star-selector";
 import { ISettings } from "@/const/generator";
 import { useSettings } from "@/hooks/useSettings";
@@ -47,7 +38,11 @@ export function SettingsDialogButton({ onSubmit }: Props) {
 	const t = useTranslations("Generator");
 	const [open, setOpen] = useState(false);
 	// 初始化时从 localStorage 读取设置
-	const { settings, updateSettings, handleSubmit: _handleSubmit } = useSettings(onSubmit);
+	const {
+		settings,
+		updateSettings,
+		handleSubmit: _handleSubmit,
+	} = useSettings(onSubmit);
 
 	const handleSubmit = () => {
 		setOpen(false);
@@ -65,12 +60,14 @@ export function SettingsDialogButton({ onSubmit }: Props) {
 				<DialogHeader>
 					<DialogTitle>{t("Advanced Settings")}</DialogTitle>
 					<DialogDescription>
-						{t('advanced-settings-description')}
+						{t("advanced-settings-description")}
 					</DialogDescription>
 				</DialogHeader>
 				<div className="flex flex-col gap-2">
 					<div className="flex justify-between items-center space-x-2">
-						<Label htmlFor="fan-mode">{t("fan-mode", {count: getFanCardsLength()})}</Label>
+						<Label htmlFor="fan-mode">
+							{t("fan-mode", { count: getFanCardsLength() })}
+						</Label>
 						<Switch
 							id="fan-mode"
 							checked={settings.hasFanMode}
@@ -141,7 +138,7 @@ export function SettingsDialogButton({ onSubmit }: Props) {
 					)}
 				</div>
 				<DialogFooter className="sm:justify-start">
-					<Button type="submit" className="bg-bg"onClick={handleSubmit}>
+					<Button type="submit" className="bg-bg" onClick={handleSubmit}>
 						{t("Confirm")}
 					</Button>
 				</DialogFooter>

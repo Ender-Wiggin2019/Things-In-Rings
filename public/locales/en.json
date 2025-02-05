@@ -170,7 +170,8 @@
     "Attribute Difficulty": "Attribute Difficulty",
     "Confirm": "Confirm",
     "advanced-settings-description": "The Settings will be saved after clicking Confirm button.",
-    "Reroll": "Reroll"
+    "Reroll": "Reroll",
+    "Lock": "Lock"
   },
   "Layout": {
     "Generator": "Generator",

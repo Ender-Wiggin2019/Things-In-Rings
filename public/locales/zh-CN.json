@@ -2,18 +2,18 @@
 	"Home": {
 	},
 	"card": {
-		"None": "None",
-		"Low": "Low",
-		"Medium": "Medium",
-		"High": "High",
-		"Official": "Official",
-		"Fan": "Fan",
+		"None": "没有",
+		"Low": "很少",
+		"Medium": "中等",
+		"High": "较高",
+		"Official": "官方",
+		"Fan": "粉丝",
 		"AI": "AI",
 		"Word": "Word",
 		"Context": "Context",
 		"Attribute": "Attribute",
-		"Easy": "Easy",
-		"Difficult": "Difficult",
+		"Easy": "简单",
+		"Difficult": "困难",
 		"w1": "有1个音节",
 		"w2": "有2个音节",
 		"w3": "长度为5个或更少字母",
@@ -171,7 +171,8 @@
 		"Attribute Difficulty": "Attribute 难度",
 		"Confirm": "确认",
 		"advanced-settings-description": "点击确认按钮后设置将被保存。",
-		"Reroll": "重掷"
+		"Reroll": "重掷",
+            "Lock": "锁定"
     },
     "Layout": {
         "Generator": "生成器",

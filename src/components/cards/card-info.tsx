@@ -1,8 +1,8 @@
 /*
  * @Author: Ender-Wiggin
  * @Date: 2025-02-02 12:15:02
- * @LastEditors: Oushuo Huang
- * @LastEditTime: 2025-02-05 12:13:01
+ * @LastEditors: Ender-Wiggin
+ * @LastEditTime: 2025-02-05 21:34:02
  * @Description:
  */
 import React from "react";
@@ -23,11 +23,13 @@ const BaseInfo = ({ card }: BaseInfoProps) => {
 	return (
 		<>
 			<div className="flex flex-col gap-2 w-full">
-            <div className="flex justify-center items-center">
-					<h1 className="text-2xl font-bold">{getDifficultyText(card.difficulty)}</h1>
+				<div className="flex justify-center items-center">
+					<h1 className="text-3xl font-bold">
+						{t(getDifficultyText(card.difficulty))}
+					</h1>
 				</div>
 				<div className="flex justify-center items-center">
-					<StarSelector value={card.difficulty} />
+					<StarSelector value={card.difficulty} size={36} />
 				</div>
 				<div className="flex justify-between items-center">
 					<Label>{t("Subjective Rate")}:</Label>
