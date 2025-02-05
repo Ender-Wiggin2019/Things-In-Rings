@@ -25,10 +25,10 @@ export class GameGenerator {
 		subjectiveRates: ESubjectiveRate[],
 		settings?: ISettings,
 	) {
-		const { wordDifficulty, contextDifficulty, attributeDifficulty } =
+		const { wordDifficulty: predefinedWordDifficulty, contextDifficulty: predefinedContextDifficulty, attributeDifficulty: predefinedAttributeDifficulty } =
         getDifficulties(difficulty);
-		const _difficulty = wordDifficulty
-        ? wordDifficulty + contextDifficulty + attributeDifficulty
+		const _difficulty = settings?.enableAdvancedDifficulty
+        ? settings?.wordDifficulty + settings?.contextDifficulty + settings?.attributeDifficulty
         : difficulty;
 
 		this.subjectiveRates = subjectiveRates;
@@ -36,28 +36,27 @@ export class GameGenerator {
 		// use user difficulty if it is not null
 		this.difficulty = {
             difficulty: _difficulty,
-			wordDifficulty: settings?.enableAdvancedDifficulty ? settings.wordDifficulty : wordDifficulty,
-			contextDifficulty: settings?.enableAdvancedDifficulty ? settings.contextDifficulty : contextDifficulty,
-			attributeDifficulty: settings?.enableAdvancedDifficulty ? settings.attributeDifficulty : attributeDifficulty,
+			wordDifficulty: settings?.enableAdvancedDifficulty ? settings.wordDifficulty : predefinedWordDifficulty,
+			contextDifficulty: settings?.enableAdvancedDifficulty ? settings.contextDifficulty : predefinedContextDifficulty,
+			attributeDifficulty: settings?.enableAdvancedDifficulty ? settings.attributeDifficulty : predefinedAttributeDifficulty,
 		};
 
 		const smallerEqual = (a: number, b: number) => a <= b;
 		const strictEqual = (a: number, b: number) => a === b;
-		const compareFn = settings ? strictEqual : smallerEqual;
+		const compareFn = settings?.enableAdvancedDifficulty ? strictEqual : smallerEqual;
 
         const _wordCards = settings?.hasFanMode ? [...OfficialWordCards, ...FanWordCards] : OfficialWordCards;
-        console.log('🎸 [test] - GameGenerator - _wordCards:', settings, _wordCards);
 		const _contextCards = settings?.hasFanMode ? [...OfficialContextCards] : OfficialContextCards;
 		const _attributeCards = settings?.hasFanMode ? [...OfficialAttributeCards] : OfficialAttributeCards;
 
 		this.wordCards = _wordCards.filter((card) =>
-			subjectiveRates.includes(card.subjectiveRate) && compareFn(card.difficulty, wordDifficulty)
-		);
+			subjectiveRates.includes(card.subjectiveRate) && compareFn(card.difficulty, this.difficulty.wordDifficulty)
+	);
 		this.contextCards = _contextCards.filter((card) =>
-			subjectiveRates.includes(card.subjectiveRate) && compareFn(card.difficulty, contextDifficulty)
+			subjectiveRates.includes(card.subjectiveRate) && compareFn(card.difficulty, this.difficulty.contextDifficulty)
 		);
 		this.attributeCards = _attributeCards.filter((card) =>
-			subjectiveRates.includes(card.subjectiveRate) && compareFn(card.difficulty, attributeDifficulty)
+			subjectiveRates.includes(card.subjectiveRate) && compareFn(card.difficulty, this.difficulty.attributeDifficulty)
 		);
 	}
 

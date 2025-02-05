@@ -2,8 +2,8 @@
 /*
  * @Author: Ender-Wiggin
  * @Date: 2025-02-01 11:39:06
- * @LastEditors: Oushuo Huang
- * @LastEditTime: 2025-02-05 12:21:55
+ * @LastEditors: Ender-Wiggin
+ * @LastEditTime: 2025-02-05 17:30:12
  * @Description:
  */
 import { useTranslations } from "next-intl"; // declare this import
@@ -24,7 +24,6 @@ import { useSettings } from "@/hooks/useSettings";
 
 export default function Page() {
 	const { settings, setSettings } = useSettings();
-	console.log('🎸 [test] - Page - settings:', settings);
 	const [generatedCards, setGeneratedCards] = useState<IGeneratedCards>();
 	const [displayDifficulty, setDisplayDifficulty] =
 		useState<EDisplayDifficulty>(EDisplayDifficulty.LEVEL_1);
