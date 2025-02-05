@@ -1,4 +1,4 @@
-import { EDisplayDifficulty } from "@/const/card";
+import { EDifficulty, EDisplayDifficulty } from "@/const/card";
 import { IDifficulties } from "@/const/generator"
 
 export const DifficultyMap: Record<EDisplayDifficulty, IDifficulties> = {
@@ -34,6 +34,18 @@ export const DifficultyMap: Record<EDisplayDifficulty, IDifficulties> = {
     },
 }
 export const getDifficulties = (difficulty: EDisplayDifficulty): IDifficulties => {
-
     return DifficultyMap[difficulty];
+}
+
+export const getDifficultyText = (difficulty: EDifficulty): string => {
+    switch (difficulty) {
+        case EDifficulty.EASY:
+            return 'Easy';
+        case EDifficulty.MEDIUM:
+            return 'Medium';
+        case EDifficulty.DIFFICULT:
+            return 'Difficult';
+        default:
+            return '';
+    }
 }

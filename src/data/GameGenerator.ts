@@ -1,5 +1,4 @@
 import {
-	EDifficulty,
 	EDisplayDifficulty,
 	ESubjectiveRate,
 	ICard,
@@ -9,8 +8,9 @@ import {
 	OfficialContextCards,
 	OfficialWordCards,
 } from "./OfficialCards";
-import { IDifficulties, IGeneratedCards } from "@/const/generator";
+import { IDifficulties, IGeneratedCards, ISettings } from "@/const/generator";
 import { getDifficulties } from "@/utils/getDifficulties";
+import { FanWordCards } from "./FanCards";
 
 export class GameGenerator {
 	public difficulty: IDifficulties;
@@ -23,9 +23,7 @@ export class GameGenerator {
 	constructor(
 		difficulty: EDisplayDifficulty,
 		subjectiveRates: ESubjectiveRate[],
-		_wordDifficulty?: EDifficulty,
-		_contextDifficulty?: EDifficulty,
-		_attributeDifficulty?: EDifficulty
+		settings?: ISettings,
 	) {
 		const { wordDifficulty, contextDifficulty, attributeDifficulty } =
         getDifficulties(difficulty);
@@ -38,20 +36,28 @@ export class GameGenerator {
 		// use user difficulty if it is not null
 		this.difficulty = {
             difficulty: _difficulty,
-			wordDifficulty: _wordDifficulty || wordDifficulty,
-			contextDifficulty: _contextDifficulty || contextDifficulty,
-			attributeDifficulty: _attributeDifficulty || attributeDifficulty,
+			wordDifficulty: settings?.enableAdvancedDifficulty ? settings.wordDifficulty : wordDifficulty,
+			contextDifficulty: settings?.enableAdvancedDifficulty ? settings.contextDifficulty : contextDifficulty,
+			attributeDifficulty: settings?.enableAdvancedDifficulty ? settings.attributeDifficulty : attributeDifficulty,
 		};
-        console.log('🎸 [test] - GameGenerator - wordDifficulty:', this.difficulty);
 
-		this.wordCards = OfficialWordCards.filter((card) =>
-			subjectiveRates.includes(card.subjectiveRate) && card.difficulty <= wordDifficulty
+		const smallerEqual = (a: number, b: number) => a <= b;
+		const strictEqual = (a: number, b: number) => a === b;
+		const compareFn = settings ? strictEqual : smallerEqual;
+
+        const _wordCards = settings?.hasFanMode ? [...OfficialWordCards, ...FanWordCards] : OfficialWordCards;
+        console.log('🎸 [test] - GameGenerator - _wordCards:', settings, _wordCards);
+		const _contextCards = settings?.hasFanMode ? [...OfficialContextCards] : OfficialContextCards;
+		const _attributeCards = settings?.hasFanMode ? [...OfficialAttributeCards] : OfficialAttributeCards;
+
+		this.wordCards = _wordCards.filter((card) =>
+			subjectiveRates.includes(card.subjectiveRate) && compareFn(card.difficulty, wordDifficulty)
 		);
-		this.contextCards = OfficialContextCards.filter((card) =>
-			subjectiveRates.includes(card.subjectiveRate) && card.difficulty <= contextDifficulty
+		this.contextCards = _contextCards.filter((card) =>
+			subjectiveRates.includes(card.subjectiveRate) && compareFn(card.difficulty, contextDifficulty)
 		);
-		this.attributeCards = OfficialAttributeCards.filter((card) =>
-			subjectiveRates.includes(card.subjectiveRate) && card.difficulty <= attributeDifficulty
+		this.attributeCards = _attributeCards.filter((card) =>
+			subjectiveRates.includes(card.subjectiveRate) && compareFn(card.difficulty, attributeDifficulty)
 		);
 	}
 

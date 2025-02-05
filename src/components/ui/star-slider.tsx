@@ -1,3 +1,10 @@
+/*
+ * @Author: Ender-Wiggin
+ * @Date: 2025-02-02 19:37:06
+ * @LastEditors: Ender-Wiggin
+ * @LastEditTime: 2025-02-03 12:35:16
+ * @Description:
+ */
 "use client"
 
 import * as React from "react"
@@ -12,15 +19,15 @@ const Slider = React.forwardRef<
   <SliderPrimitive.Root
     ref={ref}
     className={cn(
-      "relative flex w-full touch-none select-none items-center",
+      "relative flex w-full touch-none select-none items-center max-w-96",
       className
     )}
     {...props}
   >
-    <SliderPrimitive.Track className="relative h-1.5 w-full grow overflow-hidden rounded-full bg-bg/20">
-      <SliderPrimitive.Range className="absolute h-full bg-bg" />
+    <SliderPrimitive.Track className="relative h-1.5 w-full grow overflow-hidden rounded-full bg-star-dark">
+      <SliderPrimitive.Range className="absolute h-full bg-star" />
     </SliderPrimitive.Track>
-    <SliderPrimitive.Thumb className="block h-4 w-4 rounded-full border border-bg/50 bg-background shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50" />
+    <SliderPrimitive.Thumb className="block h-8 w-8 scale-125 bg-[url('/assets/star.png')] bg-contain bg-no-repeat bg-center" />
   </SliderPrimitive.Root>
 ))
 Slider.displayName = SliderPrimitive.Root.displayName

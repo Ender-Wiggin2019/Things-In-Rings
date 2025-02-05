@@ -1,10 +1,10 @@
-import { EDifficulty, EDisplayDifficulty, ESubjectiveRate, ICard } from "./card";
+import { EDifficulty, EDisplayDifficulty, EDisplaySubjectiveRate, ESubjectiveRate, ICard } from "./card";
 
 /*
  * @Author: Ender-Wiggin
  * @Date: 2025-02-02 14:50:06
- * @LastEditors: Ender-Wiggin
- * @LastEditTime: 2025-02-02 15:18:16
+ * @LastEditors: Oushuo Huang
+ * @LastEditTime: 2025-02-05 10:41:56
  * @Description:
  */
 export const DEFAULT_DIFFICULTY = 1;
@@ -23,4 +23,13 @@ export interface IDifficulties {
     wordDifficulty: EDifficulty;
     contextDifficulty: EDifficulty;
     attributeDifficulty: EDifficulty;
+}
+
+export interface ISettings {
+    hasFanMode: boolean;
+    displaySubjectiveRate: EDisplaySubjectiveRate;
+    enableAdvancedDifficulty: boolean;
+    wordDifficulty: EDifficulty,
+    contextDifficulty: EDifficulty,
+    attributeDifficulty: EDifficulty,
 }
