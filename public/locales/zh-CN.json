@@ -1,6 +1,5 @@
 {
-	"Home": {
-	},
+	"Home": {},
 	"card": {
 		"None": "没有",
 		"Low": "很少",
@@ -146,18 +145,18 @@
 		"Source": "来源",
 		"Author": "作者"
 	},
-    "Generator": {
-        "title": "生成器",
-        "description": "Generate a random word from the list",
-        "generate": "创建",
-        "result": "结果",
-        "reset": "重置",
-        "difficulty": "难度",
-        "star1": "易如反掌",
-        "star2": "轻轻松松",
-        "star3": "一般般",
-        "star4": "有点小难",
-        "star5": "有难度",
+	"Generator": {
+		"title": "生成器",
+		"description": "Generate a random word from the list",
+		"generate": "创建",
+		"result": "结果",
+		"reset": "重置",
+		"difficulty": "难度",
+		"star1": "易如反掌",
+		"star2": "轻轻松松",
+		"star3": "一般般",
+		"star4": "有点小难",
+		"star5": "有难度",
 		"sub1": "主观性较低",
 		"sub2": "主观性一般",
 		"sub3": "主观性较高",
@@ -172,16 +171,21 @@
 		"Confirm": "确认",
 		"advanced-settings-description": "点击确认按钮后设置将被保存。",
 		"Reroll": "重掷",
-            "Lock": "锁定"
-    },
-    "Layout": {
-        "Generator": "生成器",
-        "Card List": "卡表",
-        "Add Cards": "增加卡牌",
-        "Help Translate": "帮助翻译"
-    },
+		"Lock": "锁定"
+	},
+	"Layout": {
+		"Generator": "生成器",
+		"Card List": "卡表",
+		"Add Cards": "增加卡牌",
+		"Help Translate": "帮助翻译"
+	},
 	"List": {
 		"Official Cards": "官方卡牌",
 		"Fan Cards": "粉丝卡牌"
+	},
+	"LocaleSwitcher": {
+		"language": "语言",
+		"en": "English",
+		"zh-CN": "中文"
 	}
 }

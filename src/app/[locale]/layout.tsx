@@ -2,7 +2,7 @@
  * @Author: Ender-Wiggin
  * @Date: 2025-02-01 11:39:06
  * @LastEditors: Ender-Wiggin
- * @LastEditTime: 2025-02-08 17:37:58
+ * @LastEditTime: 2025-02-08 18:37:42
  * @Description:
  */
 import { NextIntlClientProvider } from "next-intl";
@@ -15,6 +15,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 
 import "./globals.css";
 import Script from "next/script";
+import LocaleSwitcher from "@/components/ui/locale-selector";
 
 export function generateStaticParams() {
 	return routing.locales.map((locale) => ({ locale }));
@@ -42,6 +43,7 @@ export default async function RootLayout({
 	children: React.ReactNode;
 	params: Promise<{ locale: string }>;
 }) {
+	/* @next-codemod-ignore */
 	let { locale } = await params;
 	setRequestLocale(locale);
 	const t = await getTranslations({ locale, namespace: "Layout" });
@@ -60,6 +62,13 @@ export default async function RootLayout({
 					locale === "en" ? enFont.className : cnFont.className
 				} antialiased bg-bg min-h-screen flex flex-col py-1`}
 			>
+				<div className="absolute top-2 left-2">
+					<LocaleSwitcher
+						locale={locale}
+						locales={routing?.locales || []}
+						route="/"
+					/>
+				</div>
 				<div className="flex justify-center items-center from-current to-transparent">
 					<Image src="/assets/logo.png" width={100} height={100} alt="logo" />
 				</div>
