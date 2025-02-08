@@ -20,7 +20,7 @@
 		"w5": "HAS AN \"O\"",
 		"w6": "HAS AN \"R\"",
 		"w7": "EXACTLY 5 LETTERS LONG",
-		"W8": "STARTS WITH A VOWEL OR \"Y\"",
+		"w8": "STARTS WITH A VOWEL OR \"Y\"",
 		"w9": "STARTS WITH A LETTER FROM \"A\"-\"M\"",
 		"w10": "HAS 2 OR MORE DIFFERENT VOWELS",
 		"w11": "HAS 4 OR FEWER UNIQUE LETTERS",
@@ -141,6 +141,11 @@
 		"aa22": "HAS IRREGULAR SHAPE",
 		"aa23": "HAS A LONG LIFESPAN",
 		"aa24": "CAN BE ROUGH",
+
+		"wf1": "CONTAINS ANOTHER WORD",
+		"cf1": "CAN BE FOUND IN YOUR COUNTRY POETRY",
+		"af1": "CAN HAVE DIFFERENT SHAPE",
+
 		"Subjective Rate": "Subjective Rate",
 		"Source": "Source",
 		"Author": "Author"
