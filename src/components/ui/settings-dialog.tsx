@@ -28,7 +28,7 @@ import { StarSelector } from "./star-selector";
 import { ISettings } from "@/const/generator";
 import { useSettings } from "@/hooks/useSettings";
 import { useState } from "react";
-import { getFanCardsLength } from "@/utils/getFanCards";
+import { getFanCardsLength } from "@/utils/fanCards";
 
 type Props = {
 	onSubmit: (settings: ISettings) => void;

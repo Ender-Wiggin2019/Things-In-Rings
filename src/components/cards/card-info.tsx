@@ -11,9 +11,9 @@ import withBaseContainer from "./base-container"; // 导入高阶组件
 import { ECardSource, ICard } from "@/const/card";
 import { Label } from "../ui/label";
 import { StarSelector } from "../ui/star-selector";
-import { getSubjectiveText } from "@/utils/getSubjectiveRates";
-import { getCardSource } from "@/utils/getFanCards";
-import { getDifficultyText } from "@/utils/getDifficulties";
+import { getSubjectiveText } from "@/utils/subjectiveRate";
+import { getCardSource } from "@/utils/fanCards";
+import { getDifficultyText } from "@/utils/difficulty";
 type BaseInfoProps = {
 	card: ICard;
 };

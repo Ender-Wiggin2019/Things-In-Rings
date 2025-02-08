@@ -1,20 +1,20 @@
 /*
  * @Author: Ender-Wiggin
  * @Date: 2025-02-01 11:39:06
- * @LastEditors: Oushuo Huang
- * @LastEditTime: 2025-02-05 12:15:40
+ * @LastEditors: Ender-Wiggin
+ * @LastEditTime: 2025-02-08 17:37:58
  * @Description:
  */
 import { NextIntlClientProvider } from "next-intl";
 import Image from "next/image";
 import { getMessages } from "next-intl/server";
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { Link, routing } from "@/i18n/routing";
 import { Bubblegum_Sans, ZCOOL_KuaiLe } from "next/font/google";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 
 import "./globals.css";
+import Script from "next/script";
 
 export function generateStaticParams() {
 	return routing.locales.map((locale) => ({ locale }));
@@ -42,19 +42,19 @@ export default async function RootLayout({
 	children: React.ReactNode;
 	params: Promise<{ locale: string }>;
 }) {
-	const { locale } = await params;
+	let { locale } = await params;
 	setRequestLocale(locale);
 	const t = await getTranslations({ locale, namespace: "Layout" });
 
 	// Ensure that the incoming `locale` is valid
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	if (!routing.locales.includes(locale as any)) {
-		notFound();
+	if (!routing?.locales?.includes(locale as any)) {
+		locale = "en";
 	}
 
 	const messages = await getMessages();
 	return (
-		<html lang="en">
+		<html lang={locale}>
 			<body
 				className={`${
 					locale === "en" ? enFont.className : cnFont.className
@@ -76,10 +76,7 @@ export default async function RootLayout({
 						>
 							{t("Card List")}
 						</Link>
-						<Link
-							href={"/"}
-							className="text-white underline hover:underline"
-						>
+						<Link href={"/"} className="text-white underline hover:underline">
 							{t("Generator")}
 						</Link>
 						<Link
@@ -103,6 +100,11 @@ export default async function RootLayout({
 					</div>
 				</footer>
 			</body>
+			<Script
+				async
+				src="https://umami.ender-wiggin.com/script.js"
+				data-website-id="33d420b0-b494-4b81-acca-713e5302af1e"
+			></Script>
 		</html>
 	);
 }

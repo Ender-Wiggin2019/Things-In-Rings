@@ -9,7 +9,7 @@
 import React, { useState } from "react";
 import ReactCardFlip from "react-card-flip";
 import { ICard } from "@/const/card";
-import { getColor } from "@/utils/getColor";
+import { getColor } from "@/utils/colors";
 import BaseCard from "./base-card";
 import BaseInfo from "./card-info";
 

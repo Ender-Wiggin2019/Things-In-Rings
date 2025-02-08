@@ -3,7 +3,7 @@
  * @Author: Ender-Wiggin
  * @Date: 2025-02-01 11:39:06
  * @LastEditors: Ender-Wiggin
- * @LastEditTime: 2025-02-05 21:34:11
+ * @LastEditTime: 2025-02-08 17:07:14
  * @Description:
  */
 import { useTranslations } from "next-intl"; // declare this import
@@ -19,7 +19,7 @@ import Card from "@/components/cards/card";
 import { Slider } from "@/components/ui/star-slider";
 import { DisplayDifficultyMap, EDisplayDifficulty } from "@/const/card";
 import { SettingsDialogButton } from "@/components/ui/settings-dialog";
-import { getSubjectiveRates } from "@/utils/getSubjectiveRates";
+import { getSubjectiveRates } from "@/utils/subjectiveRate";
 import { useSettings } from "@/hooks/useSettings";
 import { LockKeyholeOpen, LockKeyhole } from "lucide-react";
 

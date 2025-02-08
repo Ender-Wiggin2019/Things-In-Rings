@@ -9,7 +9,7 @@ import {
 	OfficialWordCards,
 } from "./OfficialCards";
 import { IDifficulties, IGeneratedCards, ISettings } from "@/const/generator";
-import { getDifficulties } from "@/utils/getDifficulties";
+import { getDifficulties } from "@/utils/difficulty";
 import { FanWordCards } from "./FanCards";
 
 export class GameGenerator {

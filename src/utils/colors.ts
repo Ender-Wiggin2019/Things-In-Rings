@@ -4,7 +4,7 @@ import { ECardType } from "@/const/card";
  * @Author: Ender-Wiggin
  * @Date: 2025-02-02 14:00:45
  * @LastEditors: Ender-Wiggin
- * @LastEditTime: 2025-02-02 14:01:58
+ * @LastEditTime: 2025-02-08 17:06:48
  * @Description:
  */
 export const getColor = (cardType: ECardType) => {
