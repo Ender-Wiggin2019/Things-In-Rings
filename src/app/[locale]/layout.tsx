@@ -59,7 +59,7 @@ export default async function RootLayout({
 		<html lang={locale}>
 			<body
 				className={`${
-					locale === "en" ? enFont.className : cnFont.className
+					locale === "zh-CN" ?  cnFont.className : enFont.className
 				} antialiased bg-bg min-h-screen flex flex-col py-1`}
 			>
 				<div className="absolute top-2 left-2">

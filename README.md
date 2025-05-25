@@ -5,7 +5,7 @@
 This project aims to bring multi-language and more replayability to this wonderful game.
 Main features are:
 
-1. Multi-language Rule Cards (currently only en and zh-CN, but can have more languages with translation file)
+1. Multi-language Rule Cards (currently only English, Chinese and Japanese, but can have more languages with translation file)
 2. Fan-made Rule Cards. With more rule cards, more replayability and more fun!
 3. Rule set generator. Currently only support simply random generation, but in future I will add more options for generation.
 

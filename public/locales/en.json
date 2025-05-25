@@ -191,6 +191,7 @@
 	"LocaleSwitcher": {
 		"language": "Language",
 		"en": "English",
-		"zh-CN": "中文"
+		"zh-CN": "中文",
+		"ja-JP": "日本語"
 	}
 }
