@@ -24,3 +24,7 @@ If you want to provide an additional translation, you can go to the [locales](ht
 
 1. Copy the `public/locales/en.json`, and paste them in a new folder with the name of your language (e.g. `fr` for French).
 2. You can send a pull request with the new files, or send them to me by email (see my [GitHub profile](https://github.com/Ender-Wiggin2019).)
+
+## Thanks
+
+Thanks Fkyota for the contribution of Japanese translation.

@@ -1,0 +1,7 @@
+{
+    "jira-plugin.workingProject": "",
+    "i18n-ally.localesPaths": [
+        "public/locales",
+        "src/i18n"
+    ]
+}
