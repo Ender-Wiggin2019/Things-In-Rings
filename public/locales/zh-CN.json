@@ -192,6 +192,7 @@
 		"language": "语言",
 		"en": "English",
 		"zh-CN": "中文",
-		"ja-JP": "日本語"
+		"ja-JP": "日本語",
+    	"nl-BE": "Dutch"
 	}
 }
